@@ -1,1 +1,1 @@
-<Replace this text with the license you've chosen for your project.>
+This is our project, and ours alone.
