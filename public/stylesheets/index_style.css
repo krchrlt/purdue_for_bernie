@@ -1,0 +1,19 @@
+body {
+    overflow: hidden;
+}
+
+input[type="text"] {
+    font-size: 24px;
+    font-family: cursive;
+}
+
+#solution, #display_prob {
+    display: none;
+}
+
+#bottom_text {
+    position: fixed;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+}
