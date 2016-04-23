@@ -2,9 +2,9 @@
  * This file provides css styles.
  */
 .jumbotron { 
-    background-color: #3498db; 
+    background-image:url('http://media1.fdncms.com/arktimes/imager/u/original/4280980/bernie_sanders_by_gage_skidmore.jpg');
     color: #ffffff;
-    padding: 270px 25px;
+    padding: 250px 25px;
 }
 
 .container-fluid {
