@@ -2,6 +2,7 @@
  * This file provides css styles.
  */
 .jumbotron { 
-    background-color: #f4511e; /* Orange */
+    background-color: #3498db; 
     color: #ffffff;
+    padding: 270px 25px;
 }
