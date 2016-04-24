@@ -2,9 +2,18 @@
  * This file provides css styles.
  */
 .jumbotron { 
-    background-image:url('http://media1.fdncms.com/arktimes/imager/u/original/4280980/bernie_sanders_by_gage_skidmore.jpg');
+	background-image:url('http://media1.fdncms.com/arktimes/imager/u/original/4280980/bernie_sanders_by_gage_skidmore.jpg');
     color: #ffffff;
-    padding: 250px 25px;
+    
+    max-width: 100%;
+    max-height: 100%;
+   	background-repeat: no-repeat;
+ 	background-size: cover;
+ 	min-height: 100vh;
+}
+.jumbotron .container {
+	text-align: center; 
+	margin-top: 7%;
 }
 
 .container-fluid {
@@ -67,8 +76,7 @@
 }
 
 .panel-footer h4 {
-    color: #aaa;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .panel-footer .btn {
