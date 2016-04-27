@@ -13,6 +13,27 @@
 </head>
 <body>
 
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="#myPage">FEEL THE BERN!</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#delegate">DELEGATES</a></li>
+                    <li><a href="#issues">ISSUES</a></li>
+                    <li><a href="#donate">DONATE</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="jumbotron vertical-center">
         <div class="container">
             <h1>Purdue For Bernie!</h1> 
@@ -70,8 +91,8 @@
                     
                     svg.call(tip);
                     
-                    var div = d3.select("#chart").append("div")	
-                                                .attr("class", "tooltip")				
+                    var div = d3.select("#chart").append("div") 
+                                                .attr("class", "tooltip")               
                                                 .style("opacity", 0);
                     var j = 0;
                     
@@ -126,7 +147,7 @@
                     .attr("fill", "white")
                     .attr("text-anchor", "middle");
                 </script>
-        	</div>
+            </div>
         </div>
     </div>
     <!--Delegate Container Ends-->
@@ -228,19 +249,19 @@
             </div>
             <div class="col-sm-7">
             <script>
-            	/*eslint-env browser, jquery*/
-            	/*globals e */
-            	$('#info_submit').on('submit', function(e){
-            		e.preventDefault();
-            		$.ajax({
-            			type: "POST",
-            			url: "../db_submit.js",
-            			data: $(this).serialize(),
-            			success: function() {
-            				alert('success');
-            			}
-            		});
-            	});
+                /*eslint-env browser, jquery*/
+                /*globals e */
+                $('#info_submit').on('submit', function(e){
+                    e.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: "../db_submit.js",
+                        data: $(this).serialize(),
+                        success: function() {
+                            alert('success');
+                        }
+                    });
+                });
             </script>
                 <form id="info_submit">
                 <div class="row">
