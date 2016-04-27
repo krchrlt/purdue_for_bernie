@@ -87,3 +87,7 @@
     background-color: #3498db;
     color: #fff;
 }
+
+svg {
+    float: right;
+}

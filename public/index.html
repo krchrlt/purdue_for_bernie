@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,16 +29,104 @@
     <!--Delegate Container-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-6">
                 <h2>Current Delegate Count</h2>
                 <h4><strong>HILLARY CLINTON:</strong> 1428</h4> 
                 <h4><strong>BERNIE SANDERS:</strong> 1153</h4>
                 <h5>Help Sanders overcome the establishment</h5>
                 <a href="http://www.realclearpolitics.com/epolls/2016/president/democratic_delegate_count.html" class="btn btn-default">See details</a>
             </div>
-            <div class="col-sm-4">
-                <span class="glyphicon glyphicon-signal logo"></span>
-            </div>
+            <div class="col-sm-6">
+                <div id="chart"></div>
+                <script type="text/javascript">
+                    var dataset = [ 1153, 1428, 1397 ];
+
+                    //width and height
+                    var w = 400;
+                    var h = 170;
+                    var barPadding = 1;
+                    
+                    var tip = d3.tip()
+                                .attr('class', 'd3-tip')
+                                .offset([-10, 0])
+                                .html(function (d) {
+                                    console.log(d);
+                                    if (d == 1153) {
+                                        return "BERNIE";
+                                    }
+                                    else if (d == 1428) {
+                                        return "HILLARY";
+                                    }
+                                    else if (d == 1397) {
+                                        return "REMAINING";
+                                    }
+                                })
+
+                    //Create SVG element
+                    var svg = d3.select("#chart")
+                        .append("svg")
+                        .attr("width", w)
+                        .attr("height", h);
+                    
+                    svg.call(tip);
+                    
+                    var div = d3.select("#chart").append("div")	
+                                                .attr("class", "tooltip")				
+                                                .style("opacity", 0);
+                    var j = 0;
+                    
+                    svg.selectAll("rect")
+                       .data(dataset)
+                       .enter()
+                       .append("rect")
+                       .attr("x", function(d, i) {
+                            return i * (w / dataset.length);
+                       })
+                       .attr("y", function(d) {
+                            return h - (d / 8.4);
+                       })
+                       .attr("width", w / dataset.length - barPadding)
+                       .attr("height", function(d) {
+                            return d / 8.4;
+                       })
+                       .attr("fill", function(d) {
+                            if (j == 0) {
+                                j++;
+                                return "#3498db";
+                            }
+                            else if (j == 1) {
+                                j++;
+                                return "#C50900";
+                            }
+                            else if (j == 2) {
+                                return "#70BE5D";
+                            }
+                       })
+                        .on('mouseover', tip.show)
+                        .on('mouseout', tip.hide);
+            
+
+                    svg.selectAll("text")
+                        .data(dataset)
+                        .enter()
+                        .append("text")
+
+                    .text(function(d) {
+                        return d;
+                    })
+
+                    .attr("x", function(d, i) {
+                        return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+                    })
+                    .attr("y", function(d) {
+                        return h - (d / 8.4) + 14;
+                    })
+                    .attr("font-family", "sans-serif")
+                    .attr("font-size", "11px")
+                    .attr("fill", "white")
+                    .attr("text-anchor", "middle");
+                </script>
+        	</div>
         </div>
     </div>
     <!--Delegate Container Ends-->
