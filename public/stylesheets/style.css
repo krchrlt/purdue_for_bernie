@@ -2,18 +2,18 @@
  * This file provides css styles.
  */
 .jumbotron { 
-	background-image:url('http://media1.fdncms.com/arktimes/imager/u/original/4280980/bernie_sanders_by_gage_skidmore.jpg');
+    background-image:url('http://media1.fdncms.com/arktimes/imager/u/original/4280980/bernie_sanders_by_gage_skidmore.jpg');
     color: #ffffff;
     
     max-width: 100%;
     max-height: 100%;
-   	background-repeat: no-repeat;
- 	background-size: cover;
- 	min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
 }
 .jumbotron .container {
-	text-align: center; 
-	margin-top: 7%;
+    text-align: center; 
+    margin-top: 7%;
 }
 
 .container-fluid {
@@ -42,6 +42,28 @@
     color: #f4511e;
     font-size: 200px;
 }
+
+.navbar {
+      margin-bottom: 0;
+      background-color: #34495e;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #34495e !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
 
 .panel {
     border: 1px solid #3498db; 
